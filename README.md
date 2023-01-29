@@ -11,4 +11,4 @@ Only commands at the moment is clear, info, and a help command.
 
 ![Boot screen](https://github.com/ozziebeanie/CassOS/blob/main/Screenshot%202023-01-29%2018.49.18.png?raw=true)
 
-![Info command](https://github.com/ozziebeanie/CassOS/blob/main/Screenshot%202023-01-29%2018.50.42.png?raw=true}
+![Info command](https://github.com/ozziebeanie/CassOS/blob/main/Screenshot%202023-01-29%2018.50.42.png?raw=true)
