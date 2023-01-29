@@ -7,6 +7,10 @@
    mov ss, ax     ; setup stack
    mov sp, 0x7C00 ; stack grows downwards from 0x7C00
  
+   mov ah, 0x00
+   mov al, 0x03
+   int 0x10
+
    mov si, welcome
    call print_string
  
@@ -21,54 +25,52 @@
    cmp byte [si], 0  ; blank line?
    je mainloop       ; yes, ignore it
  
-   
-
- 
    mov si, buffer
    mov di, cmd_help  ; "help" command
    call strcmp
    jc .help
    
    mov si, buffer
-   mov di, cmd_uname ; "uname" command
+   mov di, cmd_clear ; "clear" command
    call strcmp
-   jc .uname
-   
+   jc .clear 
+
    mov si, buffer
-   mov di, cmd_uname_system ; "uname -s" command
+   mov di, cmd_info ; "info" command
    call strcmp
-   jc .uname_system
+   jc .info
 
    mov si,badcommand
    call print_string 
    jmp mainloop  
-
-  .uname:
-   mov si, msg_uname
-   call print_string
-   jmp mainloop
  
  .help:
    mov si, msg_help
    call print_string
    jmp mainloop
    
-   
-  .uname_system
-    mov si, msg_uname_system
-    call print_string
+  .clear:
+    mov ah, 0x00
+    mov al, 0x03
+    int 0x10
     jmp mainloop
- 
 
- welcome db 'Started CassOS, Welcome', 0x0D, 0x0A, 0
+  .info:
+   mov si, msg_info1
+   call print_string
+   mov si, msg_info2
+   call print_string
+   jmp mainloop
+ 
+ welcome db 'CassOS Update Jan23 v0.0.2', 0x0D, 0x0A, 0
  badcommand db 'Bad command entered.', 0x0D, 0x0A, 0
  prompt db '>', 0
- cmd_uname db 'uname', 0
- msg_uname db 'CassOS Update Jan23 v0.0.1 16Bit', 0x0D, 0x0A, 0
- cmd_uname_system db 'uname -s', 0
- msg_uname_system db 'CassOS', 0x0D, 0x0A, 0
+ cmd_info db 'info', 0
+ cmd_clear db 'clear', 0
+ msg_info1 db 'CassOS Jen23 v0.0.2', 0x0D, 0x0A, 0
+ msg_info2 db 'CassOS was created by OzzieBeanie.', 0x0D, 0x0A, 0
  cmd_help db 'help', 0
- msg_help db 'CassOS: Commands: help, uname, uname -s', 0x0D, 0x0A, 0
+ msg_help db 'CassOS: Commands: help, clear, info', 0x0D, 0x0A, 0
  buffer times 64 db 0
  
  ; ================
