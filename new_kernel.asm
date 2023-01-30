@@ -40,6 +40,11 @@
    call strcmp
    jc .info
 
+   mov si, buffer
+   mov di, cmd_shortcut ; "shortcuts" command
+   call strcmp
+   jc .shortcuts
+
    mov si,badcommand
    call print_string 
    jmp mainloop  
@@ -61,17 +66,25 @@
    mov si, msg_info2
    call print_string
    jmp mainloop
+
+  .shortcuts:
+    mov si, msg_shortcuts
+    call print_string
+    jmp mainloop
  
- welcome db 'CassOS Update Jan23 v0.0.2', 0x0D, 0x0A, 0
+ welcome db 'AstraOS Update Jan23 v0.0.4', 0x0D, 0x0A, 0
  badcommand db 'Bad command entered.', 0x0D, 0x0A, 0
- prompt db '>', 0
+ prompt db '$', 0
+ cmd_restart db 'restart', 0
  cmd_info db 'info', 0
  cmd_clear db 'clear', 0
- msg_info1 db 'CassOS Jen23 v0.0.2', 0x0D, 0x0A, 0
- msg_info2 db 'CassOS was created by OzzieBeanie.', 0x0D, 0x0A, 0
  cmd_help db 'help', 0
- msg_help db 'CassOS: Commands: help, clear, info', 0x0D, 0x0A, 0
- buffer times 64 db 0
+ cmd_shortcut db 'shortcuts', 0
+ msg_shortcuts db 'Ctrl+P restarts the OS', 0x0D, 0x0A, 0
+ msg_info1 db 'AstraOS Jen23 v0.0.2', 0x0D, 0x0A, 0
+ msg_info2 db 'AstraOS was created by the team at Tech Cavern.', 0x0D, 0x0A, 0
+ msg_help db 'AstraOS: Commands: help, clear, info, shortcuts', 0x0D, 0x0A, 0
+ buffer times 16 db 0
  
  ; ================
  ; calls start here
@@ -99,6 +112,9 @@
  .loop:
    mov ah, 0
    int 0x16   ; wait for keypress
+
+   cmp al, 0x10    ; ctrl-p pressed?
+   je .restart     ; yes, handle it
  
    cmp al, 0x08    ; backspace pressed?
    je .backspace   ; yes, handle it
@@ -116,6 +132,12 @@
    inc cl
    jmp .loop
  
+  .restart:
+    mov ah, 0x00
+    mov al, 0x12
+    int 0x19
+    jmp $
+
  .backspace:
    cmp cl, 0	; beginning of string?
    je .loop	; yes, ignore the key
