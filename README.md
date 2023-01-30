@@ -12,6 +12,7 @@ OS does restart when you press ctrl+p
 
 # Screenshots
 
-![Boot screen](https://github.com/ozziebeanie/CassOS/blob/main/Screenshot%202023-01-29%2018.49.18.png?raw=true)
+![Boot screen](https://github.com/ozziebeanie/AstraOS/blob/main/Screenshot%202023-01-29%2020.47.57.png?raw=true)
 
-![Info command](https://github.com/ozziebeanie/CassOS/blob/main/Screenshot%202023-01-29%2018.50.42.png?raw=true)
+![Info command](https://github.com/ozziebeanie/AstraOS/blob/main/Screenshot%202023-01-29%2020.48.29.png?raw=true)
+
