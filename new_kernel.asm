@@ -81,7 +81,7 @@
  cmd_help db 'help', 0
  cmd_shortcut db 'shortcuts', 0
  msg_shortcuts db 'Ctrl+P restarts the OS', 0x0D, 0x0A, 0
- msg_info1 db 'AstraOS Jen23 v0.0.2', 0x0D, 0x0A, 0
+ msg_info1 db 'AstraOS Jen23 v0.0.4', 0x0D, 0x0A, 0
  msg_info2 db 'AstraOS was created by the team at Tech Cavern.', 0x0D, 0x0A, 0
  msg_help db 'AstraOS: Commands: help, clear, info, shortcuts', 0x0D, 0x0A, 0
  buffer times 16 db 0
