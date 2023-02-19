@@ -7,12 +7,5 @@ Project is now managed under Tech Cavern
 This does work on both VMs and Real Hardware. If you wish to use it on real hardware, you can use a tool such as rufus to write it on a usb or another type of drive. At the moment, it has only been tested on QEMU, SSDs, USBs, and SD cards. I do not know about hdmi or display ports, but I do now it displays using VGA. If you test it on other stuff, please tell me if it worked or not. I am not responsible if your stuff stops working after using the OS. 
 
 ## Commands
-Only commands at the moment is clear, info, shortcuts, and a help command.
+Only commands at the moment is clear, info, version, and a help command.
 OS does restart when you press ctrl+p
-
-# Screenshots
-
-![Boot screen](https://github.com/ozziebeanie/AstraOS/blob/main/Screenshot%202023-01-29%2020.47.57.png?raw=true)
-
-![Info command](https://github.com/ozziebeanie/AstraOS/blob/main/Screenshot%202023-01-29%2020.48.29.png?raw=true)
-
