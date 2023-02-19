@@ -40,15 +40,15 @@
    call strcmp
    jc .info
 
-   mov si, buffer
-   mov di, cmd_shortcut ; "shortcuts" command
-   call strcmp
-   jc .shortcuts
+;   mov si, buffer
+;   mov di, cmd_shortcut ; "shortcuts" command
+;   call strcmp
+;   jc .shortcuts
 
    mov si,badcommand
    call print_string 
    jmp mainloop  
- 
+
  .help:
    mov si, msg_help
    call print_string
@@ -67,12 +67,12 @@
    call print_string
    jmp mainloop
 
-  .shortcuts:
-    mov si, msg_shortcuts
-    call print_string
-    jmp mainloop
+;  .shortcuts:
+;    mov si, msg_shortcuts
+;    call print_string
+;    jmp mainloop
  
- welcome db 'AstraOS Update Jan23 v0.0.4', 0x0D, 0x0A, 0
+ welcome db 'AstraOS Beta', 0x0D, 0x0A, 0
  badcommand db 'Bad command entered.', 0x0D, 0x0A, 0
  prompt db '$', 0
  cmd_restart db 'restart', 0
@@ -80,10 +80,11 @@
  cmd_clear db 'clear', 0
  cmd_help db 'help', 0
  cmd_shortcut db 'shortcuts', 0
- msg_shortcuts db 'Ctrl+P restarts the OS', 0x0D, 0x0A, 0
- msg_info1 db 'AstraOS Jen23 v0.0.4', 0x0D, 0x0A, 0
+; msg_shortcuts db 'Ctrl+P restarts the OS', 0x0D, 0x0A, 0
+; msg_shortcuts db 'None at the moment', 0x0D, 0x0A, 0
+ msg_info1 db 'AstraOS Beta v0.0.5', 0x0D, 0x0A, 0
  msg_info2 db 'AstraOS was created by the team at Tech Cavern.', 0x0D, 0x0A, 0
- msg_help db 'AstraOS: Commands: help, clear, info, shortcuts', 0x0D, 0x0A, 0
+ msg_help db 'AstraOS: Commands: help, clear, info', 0x0D, 0x0A, 0
  buffer times 16 db 0
  
  ; ================
@@ -113,7 +114,7 @@
    mov ah, 0
    int 0x16   ; wait for keypress
 
-   cmp al, 0x10    ; ctrl-p pressed?
+   cmp al, 0x0E    ; Ctrl-Alt-Backspace pressed?
    je .restart     ; yes, handle it
  
    cmp al, 0x08    ; backspace pressed?
@@ -158,6 +159,8 @@
  
    jmp .loop	; go to the main loop
  
+
+
  .done:
    mov al, 0	; null terminator
    stosb
