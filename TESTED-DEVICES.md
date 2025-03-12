@@ -15,3 +15,7 @@ This table lists the devices tested with KassOS, along with their BIOS version, 
 | Samsung Bluebird            | MrChromeBox-2408.1 | n4000      | 4GBs  | :x:                |
 | HP Compaq Elite 8300 SSF    | K01 v02.99         | i5-3570    | 14GBs | :x:                |
 | Lenovo ThinkPad x130e       | 8QE55WW (1.16)     | i3-2367m   | 8GBs  | :x:                |
+
+**Legend**:
+-  :white_check_mark: - Functional: Device works with KassOS.
+-  :x: - Not Functional: Device does not work with KassOS.
