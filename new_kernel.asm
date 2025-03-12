@@ -36,14 +36,10 @@
    jc .clear 
 
    mov si, buffer
-   mov di, cmd_info ; "info" command
+   mov di, system_info ; "system" command
    call strcmp
-   jc .info
+   jc .system
 
-;   mov si, buffer
-;   mov di, cmd_shortcut ; "shortcuts" command
-;   call strcmp
-;   jc .shortcuts
 
    mov si,badcommand
    call print_string 
@@ -60,7 +56,7 @@
     int 0x10
     jmp mainloop
 
-  .info:
+  .system:
    mov si, msg_info1
    call print_string
    mov si, msg_info2
@@ -76,12 +72,10 @@
  badcommand db 'Unknown Command', 0x0D, 0x0A, 0
  prompt db '$', 0
  cmd_restart db 'restart', 0
- cmd_info db 'info', 0
+ cmd_system db 'system', 0
  cmd_clear db 'clear', 0
  cmd_help db 'help', 0
  cmd_shortcut db 'shortcuts', 0
-; msg_shortcuts db 'Ctrl+P restarts the OS', 0x0D, 0x0A, 0
-; msg_shortcuts db 'None at the moment', 0x0D, 0x0A, 0
  msg_info1 db 'KassOS Genesis v0.1.0', 0x0D, 0x0A, 0
  msg_info2 db 'KassOS is hosted by Kassian Horizons', 0x0D, 0x0A, 0
  msg_help db 'Help: help, clear, info', 0x0D, 0x0A, 0

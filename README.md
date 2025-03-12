@@ -1,3 +1,7 @@
+## Warning
+
+Not commits will be tested right away.
+
 # KassOS
 
 KassOS is currently a kernel written in x86 Assembly that was designed to run on a Dell Inspiron 1525. The new testing device is a HP Probook 6570b. This "Operating System" is a heavly WIP. Versions v0.0.5 and Beta v0.0.5 just lost support. By the end of 2025, the plan is to have a fully functional Operating System with a fully custom Bootloader. 
