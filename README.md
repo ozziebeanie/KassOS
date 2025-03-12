@@ -1,3 +1,7 @@
+# Warning
+(Typed on March 11th, 2025)
+This version will not compiled until a later date, so it will not be added to support until an offical compiled ISO is released.
+
 # KassOS
 
 KassOS is currently a kernel written in x86 Assembly that was designed to run on a Dell Inspiron 1525. This "Operating System" is a heavly WIP. The current versions, v0.0.5 and Beta v0.0.5, are the only supported version as of now. Once Beta v0.1.0 releases, these versions will lose support. By the end of 2025, the plan is to have a fully functional Operating System with a fully custom Bootloader. 
