@@ -1,6 +1,6 @@
 # Note
 
-More devices will be added later today along with Virtual Machine software. 
+More devices to be added along with Virtual Machine software. 
 
 # Tested Devices 
 
